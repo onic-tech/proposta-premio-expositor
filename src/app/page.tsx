@@ -1,5 +1,6 @@
 import { ProposalHeader } from "@/components/proposal/header";
 import { ProposalObjective } from "@/components/proposal/objective";
+import { SystemEcosystem } from "@/components/proposal/system-ecosystem";
 import { ProposalTimeline } from "@/components/proposal/timeline";
 import { FinancialSummary } from "@/components/proposal/financial-summary";
 import { Assumptions } from "@/components/proposal/assumptions";
@@ -18,6 +19,8 @@ export default function Home() {
         <ProposalHeader data={proposalData} />
         
         <ProposalObjective data={proposalData} />
+
+        <SystemEcosystem data={proposalData} />
         
         <div className="container mx-auto px-4 text-center mt-12 mb-4">
           <p className="text-primary font-mono text-sm tracking-widest mb-2">CRONOGRAMA DE EXECUÇÃO</p>

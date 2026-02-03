@@ -2,7 +2,7 @@ import { ProposalData } from "@/types/proposal";
 
 export const proposalData: ProposalData = {
   clientName: "POPAI",
-  projectName: "Plataforma de Gestão do Prêmio Expositor",
+  projectName: "Sistema de Gestão de Eventos e Premiações",
   companyName: "Onic Tech",
   objective: `Esta proposta tem como objetivo o desenvolvimento de uma plataforma web completa para gerenciar o processo de inscrição de stands, avaliação, roteiros de jurados, premiação e administração de Prêmio Expositor organizadas pelo POPAI, com suporte a múltiplas edições, configuração white-label e operação offline do módulo de jurados.
 
@@ -19,24 +19,80 @@ O sistema será projetado para atender participantes, jurados, guias e administr
     primary: "#00f3ff",
     secondary: "#000000",
   },
+  modules: [
+    {
+      id: "admin",
+      title: "Painel Administrativo",
+      description: "Controle total do evento, gestão financeira e configurações.",
+      iconName: "LayoutDashboard",
+      features: [
+        "Dashboard & KPIs",
+        "Gestão de Usuários e Perfis",
+        "Controle de Pagamentos",
+        "Gestão de Rotas e Juris",
+        "Configuração Whitelabel"
+      ]
+    },
+    {
+      id: "participant",
+      title: "Portal do Participante",
+      description: "Área exclusiva para expositores gerenciarem suas inscrições.",
+      iconName: "Users",
+      features: [
+        "Gestão de Inscrições",
+        "Cadastro de Stands",
+        "Checkout de Pagamento",
+        "Histórico Financeiro",
+        "Edição de Perfil"
+      ]
+    },
+    {
+      id: "jury",
+      title: "App do Jurado (PWA)",
+      description: "Aplicação mobile-first para avaliação in-loco, mesmo offline.",
+      iconName: "Gavel",
+      features: [
+        "Roteiro de Visitação",
+        "Avaliação via QR Code",
+        "Operação Offline",
+        "Critérios Dinâmicos",
+        "Sincronização Automática"
+      ]
+    },
+    {
+      id: "infra",
+      title: "Infraestrutura & API",
+      description: "A base robusta e segura que sustenta toda a operação.",
+      iconName: "Server",
+      features: [
+        "Banco de Dados Seguro",
+        "API Restful",
+        "CDN (Cloudfront)",
+        "Backups Automáticos",
+        "Alta Disponibilidade"
+      ]
+    }
+  ],
   stages: [
     {
       id: 1,
       title: "1ª Etapa",
       dateRange: "04/02 → 17/02",
       description: "Fundação do sistema, infraestrutura e funcionalidades essenciais do participante.",
+      price: "R$ 12.000,00",
       categories: [
         {
           name: "Infraestrutura",
           items: [
             { name: "Configuração AWS" },
-            { name: "Configuração de domínio/subdomínios por exposição" },
+            { name: "Configuração de domínio/subdomínios" },
             { name: "Configuração EC2 + Cloudfront" },
             { name: "Banco de dados e Backups" },
             { name: "Bucket de arquivos (S3)" },
-            { name: "Configuração do serviço de Email" },
+            { name: "Servidor de Email" },
             { name: "Repositórios e CI/CD (Pipeline de deploy automatizado)" },
             { name: "Ambientes de Homologação e Produção" },
+            { name: "Estrutura Back-end e Front-end" },
           ],
         },
         {
@@ -44,8 +100,6 @@ O sistema será projetado para atender participantes, jurados, guias e administr
           items: [
             { name: "Modelagem de dados" },
             { name: "Prototipação UX (Agnóstico/Whitelabel)" },
-            { name: "Estrutura Back-end" },
-            { name: "Estrutura Front-end" },
           ],
         },
         {
@@ -60,10 +114,10 @@ O sistema será projetado para atender participantes, jurados, guias e administr
           items: [
             { name: "Criação de conta" },
             { 
-              name: "Gerenciar Usuários",
+              name: "Gerenciar Usuários (Proprietário)",
               subFeatures: [
-                { name: "Adicionar administrador da conta" },
-                { name: "Adicionar membro" },
+                { name: "Adicionar proprietário" },
+                { name: "Adicionar operador" },
               ]
             },
             {
@@ -88,9 +142,10 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       title: "2ª Etapa",
       dateRange: "18/02 → 15/03",
       description: "Administração central e controle de pagamentos.",
+      price: "R$ 12.000,00",
       categories: [
         {
-          name: "Módulo: Administrador do Sistema",
+          name: "Módulo: Admin",
           items: [
             {
               name: "Gerenciamento de Contas",
@@ -134,6 +189,7 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       title: "3ª Etapa",
       dateRange: "16/03 → 12/04",
       description: "Aplicativo do Juri (PWA), Avaliação e Premiação.",
+      price: "R$ 12.000,00",
       categories: [
         {
           name: "Módulo: Juri (PWA - Mobile First)",
@@ -147,7 +203,7 @@ O sistema será projetado para atender participantes, jurados, guias e administr
           ],
         },
         {
-          name: "Módulo: Administrador do Sistema",
+          name: "Módulo: Admin",
           items: [
             { name: "Monitoramento de roteiros em tempo real" },
             { name: "Revisão de registros de stands" },
@@ -175,9 +231,10 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       title: "4ª Etapa",
       dateRange: "13/04 → 10/05",
       description: "Dashboards, Whitelabel e Gestão de Edições.",
+      price: "R$ 12.000,00",
       categories: [
         {
-          name: "Módulo: Administrador do Sistema",
+          name: "Módulo: Admin",
           items: [
             { name: "Dashboard e KPIs (Usuários, Pagamentos, Arrecadação)" },
             {

@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface FeatureItem {
   name: string;
   details?: string[];
@@ -16,6 +18,14 @@ export interface ProposalStage {
   }[];
 }
 
+export interface SystemModule {
+  id: string;
+  title: string;
+  description: string;
+  iconName: "LayoutDashboard" | "Users" | "Gavel" | "Map" | "Server" | "Smartphone";
+  features: string[];
+}
+
 export interface ProposalData {
   clientName: string;
   projectName: string;
@@ -28,4 +38,5 @@ export interface ProposalData {
     secondary: string;
   };
   stages: ProposalStage[];
+  modules?: SystemModule[];
 }
