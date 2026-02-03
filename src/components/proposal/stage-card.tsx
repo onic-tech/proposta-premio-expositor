@@ -113,7 +113,7 @@ export function StageCard({ stage, index }: { stage: ProposalStage; index: numbe
                   <Layers className={cn("w-5 h-5", category.excluded ? "text-red-500/50" : "text-primary")} />
                   {category.name}
                 </h4>
-                <FeatureList items={category.categories || category.items} parentExcluded={category.excluded} />
+                <FeatureList items={category.items || []} parentExcluded={category.excluded} />
               </div>
             ))}
           </Card>
