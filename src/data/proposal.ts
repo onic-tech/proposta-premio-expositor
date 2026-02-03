@@ -1,13 +1,16 @@
 import { ProposalData } from "@/types/proposal";
 
-export const proposalData: ProposalData = {
+const baseData: ProposalData = {
   clientName: "POPAI",
-  projectName: "Sistema de Gestão de Eventos e Premiações",
+  projectName: "Plataforma de Gestão do Prêmio Expositor",
   companyName: "Onic Tech",
   objective: `Esta proposta tem como objetivo o desenvolvimento de uma plataforma web completa para gerenciar o processo de inscrição de stands, avaliação, roteiros de jurados, premiação e administração de Prêmio Expositor organizadas pelo POPAI, com suporte a múltiplas edições, configuração white-label e operação offline do módulo de jurados.
 
 O sistema será projetado para atender participantes, jurados, guias e administradores, garantindo escalabilidade, segurança e experiência de uso otimizada.`,
-  totalPrice: "R$ 48.000,00",
+  colors: {
+    primary: "#00f3ff",
+    secondary: "#000000",
+  },
   assumptions: [
     "Infraestrutura AWS será mantida na conta do cliente",
     "Custos de serviços AWS, gateways de pagamento e serviços de terceiros não estão inclusos",
@@ -15,10 +18,6 @@ O sistema será projetado para atender participantes, jurados, guias e administr
     "Alterações ou novas funcionalidades fora do escopo serão tratadas como demanda adicional",
     "Suporte e manutenção pós-entrega podem ser contratados separadamente"
   ],
-  colors: {
-    primary: "#00f3ff",
-    secondary: "#000000",
-  },
   modules: [
     {
       id: "admin",
@@ -26,11 +25,12 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       description: "Controle total do evento, gestão financeira e configurações.",
       iconName: "LayoutDashboard",
       features: [
-        "Dashboard & KPIs",
-        "Gestão de Usuários e Perfis",
-        "Controle de Pagamentos",
-        "Gestão de Rotas e Juris",
-        "Configuração Whitelabel"
+        { name: "Dashboard & KPIs", excluded: true },
+        { name: "Gestão de Usuários e Perfis" },
+        { name: "Controle de Pagamentos" },
+        { name: "Gestão de Rotas e Juris" },
+        { name: "Configuração White Label", excluded: true },
+        { name: "Gestão e Configuração de Edições", excluded: true }
       ]
     },
     {
@@ -39,11 +39,12 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       description: "Área exclusiva para expositores gerenciarem suas inscrições.",
       iconName: "Users",
       features: [
-        "Gestão de Inscrições",
-        "Cadastro de Stands",
-        "Checkout de Pagamento",
-        "Histórico Financeiro",
-        "Edição de Perfil"
+        { name: "Gestão de Inscrições" },
+        { name: "Cadastro de Stands" },
+        { name: "Gestão de usuários da sua conta", excluded: true },
+        { name: "Checkout de Pagamento" },
+        { name: "Histórico Financeiro" },
+        { name: "Edição de Perfil" }
       ]
     },
     {
@@ -52,11 +53,12 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       description: "Aplicação mobile-first para avaliação in-loco, mesmo offline.",
       iconName: "Gavel",
       features: [
-        "Roteiro de Visitação",
-        "Avaliação via QR Code",
-        "Operação Offline",
-        "Critérios Dinâmicos",
-        "Sincronização Automática"
+        { name: "Roteiro de Visitação" },
+        { name: "Avaliação via QR Code" },
+        { name: "Operação Offline" },
+        { name: "Acompanhamento em tempo real", excluded: true },
+        { name: "Critérios Dinâmicos" },
+        { name: "Sincronização Automática" }
       ]
     },
     {
@@ -65,11 +67,12 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       description: "A base robusta e segura que sustenta toda a operação.",
       iconName: "Server",
       features: [
-        "Banco de Dados Seguro",
-        "API Restful",
-        "CDN (Cloudfront)",
-        "Backups Automáticos",
-        "Alta Disponibilidade"
+        { name: "Banco de Dados Seguro" },
+        { name: "API Restful" },
+        { name: "Subdomínio por exposição", excluded: true },
+        { name: "CDN (Cloudfront)" },
+        { name: "Backups Automáticos" },
+        { name: "Alta Disponibilidade" }
       ]
     }
   ],
@@ -79,27 +82,27 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       title: "1ª Etapa",
       dateRange: "04/02 → 17/02",
       description: "Fundação do sistema, infraestrutura e funcionalidades essenciais do participante.",
-      price: "R$ 12.000,00",
       categories: [
         {
           name: "Infraestrutura",
           items: [
             { name: "Configuração AWS" },
-            { name: "Configuração de domínio/subdomínios" },
+            { name: "Configuração de domínio/subdomínios por exposição", excluded: true  },
             { name: "Configuração EC2 + Cloudfront" },
             { name: "Banco de dados e Backups" },
             { name: "Bucket de arquivos (S3)" },
-            { name: "Servidor de Email" },
+            { name: "Configuração do serviço de Email" },
             { name: "Repositórios e CI/CD (Pipeline de deploy automatizado)" },
             { name: "Ambientes de Homologação e Produção" },
-            { name: "Estrutura Back-end e Front-end" },
           ],
         },
         {
           name: "Design & Arquitetura",
           items: [
             { name: "Modelagem de dados" },
-            { name: "Prototipação UX (Agnóstico/Whitelabel)" },
+            { name: "Prototipação UX (Agnóstico/White Label)", excluded: true  },
+            { name: "Estrutura Back-end" },
+            { name: "Estrutura Front-end" },
           ],
         },
         {
@@ -114,10 +117,11 @@ O sistema será projetado para atender participantes, jurados, guias e administr
           items: [
             { name: "Criação de conta" },
             { 
-              name: "Gerenciar Usuários (Proprietário)",
+              name: "Gerenciar Usuários",
+              excluded: true,
               subFeatures: [
-                { name: "Adicionar proprietário" },
-                { name: "Adicionar operador" },
+                { name: "Adicionar administrador da conta" },
+                { name: "Adicionar membro" },
               ]
             },
             {
@@ -131,7 +135,7 @@ O sistema será projetado para atender participantes, jurados, guias e administr
               name: "Pagamentos (Checkout)",
               details: ["Cartão de Crédito", "Boleto"],
             },
-            { name: "Acesso ao cronograma e regulamento" },
+            { name: "Acesso ao regulamento" },
             { name: "Edição de perfil (Senha, idioma, email...)" },
           ],
         },
@@ -142,17 +146,16 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       title: "2ª Etapa",
       dateRange: "18/02 → 15/03",
       description: "Administração central e controle de pagamentos.",
-      price: "R$ 12.000,00",
       categories: [
         {
-          name: "Módulo: Admin",
+          name: "Módulo: Administrador do Sistema",
           items: [
             {
               name: "Gerenciamento de Contas",
               subFeatures: [
                 { name: "Gestão de usuários" },
                 { name: "Alteração de senha, Ativação/Inativação" },
-                { name: "Inscrição de stand fora do prazo" },
+                { name: "Inscrição de stand fora do prazo", excluded: true  },
               ]
             },
             {
@@ -164,7 +167,10 @@ O sistema será projetado para atender participantes, jurados, guias e administr
             },
             {
               name: "Gerenciamento de Juris",
-              details: ["Importação em massa"],
+              subFeatures: [
+                { name: "Importação em massa", excluded: true  },
+                { name: "Alteração de senha, Ativação/Inativação"  },
+              ],
             },
             {
               name: "Gerenciamento de Rotas",
@@ -189,29 +195,29 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       title: "3ª Etapa",
       dateRange: "16/03 → 12/04",
       description: "Aplicativo do Juri (PWA), Avaliação e Premiação.",
-      price: "R$ 12.000,00",
       categories: [
         {
           name: "Módulo: Juri (PWA - Mobile First)",
           items: [
             { name: "Acesso Offline/Online" },
             { name: "Roteiro (Listagem de stands)" },
-            { name: "Acompanhamento de execução em tempo real" },
+            { name: "Acompanhamento de execução em tempo real", excluded: true  },
             { name: "Scanner QR Code para avaliação" },
             { name: "Critérios de avaliação" },
             { name: "Preview do stand e Manual do Juri" },
           ],
         },
         {
-          name: "Módulo: Admin",
+          name: "Módulo: Administrador do Sistema",
           items: [
-            { name: "Monitoramento de roteiros em tempo real" },
+            { name: "Monitoramento de roteiros em tempo real", excluded: true  },
             { name: "Revisão de registros de stands" },
-            { name: "Exportação e Relatórios de stands" },
+            { name: "Exportação de Relatório de stands"  },
             {
               name: "Módulo de Premiação",
               subFeatures: [
-                { name: "Ranking Automático" },
+                { name: "Ranking Automático", excluded: true  },
+                { name: "Ranking Público", excluded: true  },
                 { name: "Exportação de dados" },
               ]
             },
@@ -219,9 +225,10 @@ O sistema será projetado para atender participantes, jurados, guias e administr
         },
         {
           name: "Módulo: Guia",
+          excluded: true,
           items: [
-            { name: "Visualização de roteiro" },
-            { name: "Acompanhamento em tempo real" },
+            { name: "Visualização de roteiro",  },
+            { name: "Acompanhamento em tempo real",  },
           ],
         },
       ],
@@ -230,13 +237,12 @@ O sistema será projetado para atender participantes, jurados, guias e administr
       id: 4,
       title: "4ª Etapa",
       dateRange: "13/04 → 10/05",
-      description: "Dashboards, Whitelabel e Gestão de Edições.",
-      price: "R$ 12.000,00",
+      description: "Dashboards, White Label e Gestão de Edições.",
       categories: [
         {
-          name: "Módulo: Admin",
+          name: "Módulo: Administrador do Sistema",
           items: [
-            { name: "Dashboard e KPIs (Usuários, Pagamentos, Arrecadação)" },
+            { name: "Dashboard e KPIs (Usuários, Pagamentos, Arrecadação)", excluded: true  },
             {
               name: "Gestão de Categorias",
               subFeatures: [
@@ -245,7 +251,8 @@ O sistema será projetado para atender participantes, jurados, guias e administr
               ]
             },
             {
-              name: "Gerenciamento de Exposições (Whitelabel)",
+              name: "Gerenciamento de Exposições (White Label)",
+              excluded: true,
               subFeatures: [
                 { name: "Banner de login customizável" },
                 { name: "Cores primária/secundária customizáveis" },
@@ -253,11 +260,102 @@ O sistema será projetado para atender participantes, jurados, guias e administr
                 { name: "Subdomínio próprio" },
               ]
             },
-            { name: "Gestão de Edições (2026, 2027...)" },
-            { name: "Gestão de Cronograma" },
+            { name: "Gestão e configuração de Edições (2026, 2027...)", excluded: true  },
+            { name: "Gestão de Cronograma", excluded: true  },
           ],
         },
       ],
     },
   ],
 };
+
+// Deep clone helper
+const clone = <T>(obj: T): T => JSON.parse(JSON.stringify(obj));
+
+// --- Reduced Proposal (Original with exclusions) ---
+export const reducedProposal: ProposalData = {
+  ...clone(baseData),
+  totalPrice: "R$ 30.000,00",
+  oldTotalPrice: "R$ 48.000,00",
+  paymentTerms: [
+    {
+      text: "Pagamento À Vista",
+      oldText: "4 Parcelas de R$ 12.000,00",
+      highlight: false
+    },
+    {
+      text: "",
+      oldText: "Pagamento por etapa entregue"
+    },
+
+  ],
+  comparison: {
+    pros: [
+      "Menor investimento inicial",
+      "Foco no essencial para a operação",
+      "Atende os requisitos principais"
+    ],
+    cons: [
+      "Sem customização White Label",
+      "Decidir White Label depois exigira um custo maior de desenvolvimento",
+      "Sem módulo do Guia",
+      "Sem gestão de múltiplas edições",
+      "Necessidade de contratar time técnico para configurar novas edições",
+      "Sem dashboards avançados e KPIs",
+      "Sem acompanhamento em tempo real no dia do evento"
+    ]
+  }
+};
+
+// --- Full Proposal (No exclusions, different price) ---
+const fullData = clone(baseData);
+
+// Recursively remove 'excluded' flag
+const removeExclusions = (obj: any) => {
+  if (typeof obj !== 'object' || obj === null) return;
+  if (Array.isArray(obj)) {
+    obj.forEach(removeExclusions);
+  } else {
+    delete obj.excluded;
+    Object.values(obj).forEach(removeExclusions);
+  }
+};
+
+removeExclusions(fullData.modules);
+removeExclusions(fullData.stages);
+
+export const fullProposal: ProposalData = {
+  ...fullData,
+  totalPrice: "R$ 42.000,00",
+  oldTotalPrice: "R$ 48.000,00",
+  paymentTerms: [
+    {
+      text: "Entrada de R$ 30.000,00",
+      highlight: false
+    },
+    {
+      text: "Saldo de R$ 12.000,00",
+      highlight: false
+    },
+    {
+      text: "Parcelamento do saldo em até 4x após a entrega"
+    }
+  ],
+  stages: fullData.stages.map(s => ({ ...s, price: undefined })), // Remove per-stage price as it's a different model
+  comparison: {
+    pros: [
+      "Sistema Completo e Robusto",
+      "Totalmente White Label (Customizável por exposição)",
+      "Gestão de Múltiplas Edições (Longo Prazo)",
+      "Dashboards e KPIs para tomada de decisão",
+      "Módulo Guia e Acompanhamento em Tempo Real",
+      "Desconto e Condição de pagamento facilitada"
+    ],
+    cons: [
+      "Investimento total maior"
+    ]
+  }
+};
+
+// Default export for backward compatibility if needed, but we'll switch to named exports
+export const proposalData = reducedProposal;

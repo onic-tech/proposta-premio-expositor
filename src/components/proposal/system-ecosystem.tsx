@@ -11,8 +11,10 @@ import {
   Server, 
   Smartphone,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  XCircle
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const icons = {
   LayoutDashboard,
@@ -33,23 +35,42 @@ function ModuleCard({ module, index }: { module: SystemModule; index: number }) 
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Card className="h-full bg-secondary/20 border-primary/10 hover:border-primary/40 transition-all duration-300 group p-6 relative overflow-hidden">
+      <Card className={cn(
+        "h-full bg-secondary/20 border-primary/10 hover:border-primary/40 transition-all duration-300 group p-6 relative overflow-hidden",
+        module.excluded && "opacity-60 border-red-500/20 hover:border-red-500/40"
+      )}>
         {/* Hover Gradient Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className={cn(
+          "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+          module.excluded ? "from-red-500/5 to-transparent" : "from-primary/5 to-transparent"
+        )} />
         
         <div className="relative z-10">
-          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <Icon className="w-6 h-6 text-primary" />
+          <div className={cn(
+            "w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300",
+            module.excluded ? "bg-red-500/10" : "bg-primary/10"
+          )}>
+            <Icon className={cn("w-6 h-6", module.excluded ? "text-red-500/50" : "text-primary")} />
           </div>
           
-          <h4 className="text-xl font-bold text-white mb-2">{module.title}</h4>
-          <p className="text-sm text-gray-400 mb-6 min-h-[40px]">{module.description}</p>
+          <h4 className={cn("text-xl font-bold text-white mb-2", module.excluded && "line-through decoration-red-500/50")}>
+            {module.title}
+          </h4>
+          <p className={cn("text-sm text-gray-400 mb-6 min-h-[40px]", module.excluded && "line-through decoration-red-500/30")}>
+            {module.description}
+          </p>
           
           <ul className="space-y-2">
             {module.features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
-                <CheckCircle2 className="w-4 h-4 text-primary/60 mt-0.5 shrink-0" />
-                <span>{feature}</span>
+                {(module.excluded || feature.excluded) ? (
+                  <XCircle className="w-4 h-4 text-red-500/50 mt-0.5 shrink-0" />
+                ) : (
+                  <CheckCircle2 className="w-4 h-4 text-primary/60 mt-0.5 shrink-0" />
+                )}
+                <span className={cn((module.excluded || feature.excluded) && "line-through decoration-red-500/30 text-gray-500")}>
+                  {feature.name}
+                </span>
               </li>
             ))}
           </ul>
@@ -70,7 +91,7 @@ export function SystemEcosystem({ data }: { data: ProposalData }) {
           Ecossistema Integrado
         </h2>
         <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-          Uma visão geral de como os módulos se conectam para entregar uma experiência completa.
+          Uma visão geral de como os módulos se conectam para entregar uma experiência completa para todos os stakeholders.
         </p>
       </div>
 

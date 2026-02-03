@@ -1,9 +1,9 @@
-import { LucideIcon } from "lucide-react";
 
 export interface FeatureItem {
   name: string;
   details?: string[];
   subFeatures?: FeatureItem[];
+  excluded?: boolean;
 }
 
 export interface ProposalStage {
@@ -15,7 +15,13 @@ export interface ProposalStage {
   categories: {
     name: string;
     items: FeatureItem[];
+    excluded?: boolean;
   }[];
+}
+
+export interface ModuleFeature {
+  name: string;
+  excluded?: boolean;
 }
 
 export interface SystemModule {
@@ -23,7 +29,19 @@ export interface SystemModule {
   title: string;
   description: string;
   iconName: "LayoutDashboard" | "Users" | "Gavel" | "Map" | "Server" | "Smartphone";
-  features: string[];
+  features: ModuleFeature[];
+  excluded?: boolean;
+}
+
+export interface PaymentTerm {
+  text: string;
+  oldText?: string;
+  highlight?: boolean;
+}
+
+export interface ProposalComparison {
+  pros: string[];
+  cons: string[];
 }
 
 export interface ProposalData {
@@ -32,7 +50,10 @@ export interface ProposalData {
   companyName: string;
   objective?: string;
   totalPrice?: string;
+  oldTotalPrice?: string;
+  paymentTerms?: PaymentTerm[];
   assumptions?: string[];
+  comparison?: ProposalComparison;
   colors: {
     primary: string;
     secondary: string;

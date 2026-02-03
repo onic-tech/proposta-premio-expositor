@@ -3,42 +3,62 @@
 import { motion } from "framer-motion";
 import { FeatureItem, ProposalStage } from "@/types/proposal";
 import { Card } from "@/components/ui/card";
-import { Calendar, CheckCircle2, Layers, DollarSign } from "lucide-react";
+import { Calendar, CheckCircle2, Layers, DollarSign, XCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-function FeatureList({ items }: { items: FeatureItem[] }) {
+function FeatureList({ items, parentExcluded }: { items: FeatureItem[]; parentExcluded?: boolean }) {
   return (
     <ul className="space-y-3 mt-4">
-      {items.map((item, idx) => (
-        <li key={idx} className="flex flex-col gap-1">
-          <div className="flex items-start gap-3">
-            <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-            <span className="text-gray-300 font-medium">{item.name}</span>
-          </div>
-          
-          {/* Details (e.g., Payment methods) */}
-          {item.details && (
-            <div className="ml-8 flex flex-wrap gap-2 mt-1">
-              {item.details.map((detail, dIdx) => (
-                <span key={dIdx} className="text-xs bg-secondary px-2 py-0.5 rounded text-primary/80 border border-primary/10">
-                  {detail}
-                </span>
-              ))}
+      {items.map((item, idx) => {
+        const isExcluded = parentExcluded || item.excluded;
+        
+        return (
+          <li key={idx} className="flex flex-col gap-1">
+            <div className={cn("flex items-start gap-3", isExcluded && "opacity-50")}>
+              {isExcluded ? (
+                <XCircle className="w-5 h-5 text-red-500/50 mt-0.5 shrink-0" />
+              ) : (
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+              )}
+              <span className={cn("text-gray-300 font-medium", isExcluded && "line-through decoration-red-500/50")}>
+                {item.name}
+              </span>
             </div>
-          )}
+            
+            {/* Details (e.g., Payment methods) */}
+            {item.details && (
+              <div className={cn("ml-8 flex flex-wrap gap-2 mt-1", isExcluded && "opacity-50 grayscale")}>
+                {item.details.map((detail, dIdx) => (
+                  <span key={dIdx} className="text-xs bg-secondary px-2 py-0.5 rounded text-primary/80 border border-primary/10">
+                    {detail}
+                  </span>
+                ))}
+              </div>
+            )}
 
-          {/* Subfeatures */}
-          {item.subFeatures && (
-            <ul className="ml-8 mt-2 space-y-2 border-l border-primary/20 pl-4">
-              {item.subFeatures.map((sub, sIdx) => (
-                <li key={sIdx} className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0" />
-                  <span className="text-sm text-gray-400">{sub.name}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-      ))}
+            {/* Subfeatures */}
+            {item.subFeatures && (
+              <ul className={cn("ml-8 mt-2 space-y-2 border-l border-primary/20 pl-4", isExcluded && "border-red-500/20 opacity-50")}>
+                {item.subFeatures.map((sub, sIdx) => {
+                  const isSubExcluded = isExcluded || sub.excluded;
+                  return (
+                    <li key={sIdx} className="flex items-start gap-2">
+                      {isSubExcluded ? (
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500/50 mt-2 shrink-0" />
+                      ) : (
+                         <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0" />
+                      )}
+                      <span className={cn("text-sm text-gray-400", isSubExcluded && "line-through decoration-red-500/50")}>
+                        {sub.name}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -86,11 +106,14 @@ export function StageCard({ stage, index }: { stage: ProposalStage; index: numbe
           <Card className="bg-card/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-all duration-300">
             {stage.categories.map((category, catIdx) => (
               <div key={catIdx} className="mb-8 last:mb-0">
-                <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2 border-b border-white/10 pb-2">
-                  <Layers className="w-5 h-5 text-primary" />
+                <h4 className={cn(
+                  "text-lg font-semibold text-white mb-4 flex items-center gap-2 border-b border-white/10 pb-2",
+                  category.excluded && "text-gray-500 line-through decoration-red-500/50 opacity-60"
+                )}>
+                  <Layers className={cn("w-5 h-5", category.excluded ? "text-red-500/50" : "text-primary")} />
                   {category.name}
                 </h4>
-                <FeatureList items={category.items} />
+                <FeatureList items={category.categories || category.items} parentExcluded={category.excluded} />
               </div>
             ))}
           </Card>

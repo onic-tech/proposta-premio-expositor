@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { ProposalData } from "@/types/proposal";
 
-export function ProposalHeader({ data }: { data: ProposalData }) {
+interface ProposalHeaderProps {
+  data: ProposalData;
+}
+
+export function ProposalHeader({ data }: ProposalHeaderProps) {
   return (
     <motion.header 
       initial={{ opacity: 0, y: -20 }}
@@ -31,7 +35,7 @@ export function ProposalHeader({ data }: { data: ProposalData }) {
             </span>
           </div>
         </div>
-        
+
         {/* Project Info Section */}
         <div className="w-full md:w-auto text-center md:text-right">
           <h2 className="text-sm md:text-2xl font-semibold text-white leading-tight">
