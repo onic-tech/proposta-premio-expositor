@@ -70,7 +70,7 @@ export function SystemEcosystem({ data }: { data: ProposalData }) {
           Ecossistema Integrado
         </h2>
         <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-          Uma visão geral de como os módulos se conectam para entregar uma experiência completa para todos os stakeholders.
+          Uma visão geral de como os módulos se conectam para entregar uma experiência completa.
         </p>
       </div>
 
