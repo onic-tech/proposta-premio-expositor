@@ -26,9 +26,9 @@ export function FinancialSummary({ data }: { data: ProposalData }) {
 
           <div className="p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
             <div className="flex-1 space-y-4">
-              <h2 className="text-3xl font-bold text-white">Investimento Total</h2>
+              <h2 className="text-3xl font-bold text-white">Proposta de Valor 2026</h2>
               <p className="text-gray-400 max-w-lg">
-                O projeto foi dividido em 4 etapas estratégicas para garantir entregas contínuas e validação constante.
+                O modelo foi estruturado para garantir segurança técnica e previsibilidade financeira.
               </p>
               
               <div className="flex flex-col gap-2 mt-4">
@@ -66,24 +66,6 @@ export function FinancialSummary({ data }: { data: ProposalData }) {
                   </>
                 )}
               </div>
-            </div>
-
-            <div className="shrink-0 bg-primary/5 border border-primary/20 rounded-2xl p-8 flex flex-col items-center justify-center min-w-[300px] shadow-[0_0_30px_rgba(0,243,255,0.05)] relative">
-              <span className="text-gray-400 text-sm uppercase tracking-widest mb-2">Valor Total</span>
-              
-              {data.oldTotalPrice && (
-                <div className="absolute -top-4 -right-4 bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-mono line-through decoration-red-500/50">
-                  {data.oldTotalPrice}
-                </div>
-              )}
-
-              <div className="flex items-start gap-1 text-primary">
-                <DollarSign className="w-8 h-8 mt-2" />
-                <span className="text-5xl md:text-6xl font-bold tracking-tighter">
-                  {numericPrice >= 1000 ? `${Math.floor(numericPrice / 1000)}k` : numericPrice}
-                </span>
-              </div>
-              <span className="text-gray-500 text-sm mt-2 font-mono">{data.totalPrice}</span>
             </div>
           </div>
         </Card>

@@ -12,7 +12,7 @@ export interface ProposalStage {
   dateRange: string;
   description?: string;
   price?: string;
-  categories: {
+  categories?: {
     name: string;
     items: FeatureItem[];
     excluded?: boolean;

@@ -73,16 +73,16 @@ export function StageCard({ stage, index }: { stage: ProposalStage; index: numbe
       className="relative pl-8 md:pl-0"
     >
       {/* Timeline Connector for Desktop */}
-      <div className="hidden md:flex flex-col items-center absolute left-1/2 -translate-x-1/2 top-0 bottom-0 h-full">
+      <div className="hidden md:flex flex-col items-center absolute left-0 top-0 bottom-0 h-full">
         <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_#00f3ff] z-10" />
         <div className="w-0.5 bg-gradient-to-b from-primary via-primary/20 to-transparent h-full" />
       </div>
 
-      <div className={`flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
+      <div className="flex flex-col md:flex-row gap-8 pl-8 md:pl-12">
         
         {/* Date & Title Section */}
-        <div className="flex-1 md:text-right md:pt-2 group">
-          <div className={`flex flex-col ${index % 2 === 0 ? "md:items-start md:text-left" : "md:items-end"}`}>
+        <div className="flex-1 md:text-left md:pt-2 group">
+          <div className="flex flex-col md:items-start md:text-left">
             <span className="text-primary font-mono text-lg font-bold tracking-wider mb-2 inline-flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               {stage.dateRange}
@@ -102,22 +102,24 @@ export function StageCard({ stage, index }: { stage: ProposalStage; index: numbe
         </div>
 
         {/* Content Section */}
-        <div className="flex-1 pb-16">
-          <Card className="bg-card/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-all duration-300">
-            {stage.categories.map((category, catIdx) => (
-              <div key={catIdx} className="mb-8 last:mb-0">
-                <h4 className={cn(
-                  "text-lg font-semibold text-white mb-4 flex items-center gap-2 border-b border-white/10 pb-2",
-                  category.excluded && "text-gray-500 line-through decoration-red-500/50 opacity-60"
-                )}>
-                  <Layers className={cn("w-5 h-5", category.excluded ? "text-red-500/50" : "text-primary")} />
-                  {category.name}
-                </h4>
-                <FeatureList items={category.items || []} parentExcluded={category.excluded} />
-              </div>
-            ))}
-          </Card>
-        </div>
+        {stage.categories && stage.categories.length > 0 && (
+          <div className="flex-1 pb-16">
+            <Card className="bg-card/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-all duration-300">
+              {stage.categories.map((category, catIdx) => (
+                <div key={catIdx} className="mb-8 last:mb-0">
+                  <h4 className={cn(
+                    "text-lg font-semibold text-white mb-4 flex items-center gap-2 border-b border-white/10 pb-2",
+                    category.excluded && "text-gray-500 line-through decoration-red-500/50 opacity-60"
+                  )}>
+                    <Layers className={cn("w-5 h-5", category.excluded ? "text-red-500/50" : "text-primary")} />
+                    {category.name}
+                  </h4>
+                  <FeatureList items={category.items || []} parentExcluded={category.excluded} />
+                </div>
+              ))}
+            </Card>
+          </div>
+        )}
       </div>
     </motion.div>
   );
