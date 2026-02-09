@@ -37,7 +37,7 @@ export function ProposalObjective({ data }: { data: ProposalData }) {
                 ))}
               </div>
 
-              <div className="pt-4 flex flex-wrap gap-4">
+              {/* <div className="pt-4 flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-sm text-primary/80 bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
                   <Sparkle className="w-4 h-4" />
                   <span>Experiência do Usuário</span>
@@ -58,7 +58,7 @@ export function ProposalObjective({ data }: { data: ProposalData }) {
                   <ShieldCheck className="w-4 h-4" />
                   <span>Segurança</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </Card>

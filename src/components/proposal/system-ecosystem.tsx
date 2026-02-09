@@ -80,22 +80,24 @@ function ModuleCard({ module, index }: { module: SystemModule; index: number }) 
   );
 }
 
-export function SystemEcosystem({ data }: { data: ProposalData }) {
+export function SystemEcosystem({ data, hideHeader = false }: { data: ProposalData; hideHeader?: boolean }) {
   if (!data.modules) return null;
 
   return (
-    <section className="container mx-auto px-6 mb-20">
-      <div className="text-center mb-12">
-        <p className="text-primary font-mono text-sm tracking-widest mb-2">ARQUITETURA DA SOLUÇÃO</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
-          Ecossistema Integrado
-        </h2>
-        <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-          Uma visão geral de como os módulos se conectam para entregar uma experiência completa para todos os stakeholders.
-        </p>
-      </div>
+    <section className={hideHeader ? "" : "container mx-auto px-6 mb-20"}>
+      {!hideHeader && (
+        <div className="text-center mb-12">
+          <p className="text-primary font-mono text-sm tracking-widest mb-2">ARQUITETURA DA SOLUÇÃO</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Ecossistema Integrado
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Uma visão geral de como os módulos se conectam para entregar uma experiência completa para todos os stakeholders.
+          </p>
+        </div>
+      )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+      <div className={`grid grid-cols-1 md:grid-cols-2 ${data.modules.length > 2 ? 'lg:grid-cols-4' : 'lg:grid-cols-2 max-w-4xl mx-auto'} gap-6 relative`}>
         {/* Connecting Lines (Desktop Only - Visual decoration) */}
         <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent -z-10" />
         
