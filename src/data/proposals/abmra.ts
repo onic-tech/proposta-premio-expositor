@@ -25,7 +25,7 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
       highlight: false,
     },
     {
-      text: "Sustentação (Fee Mensal): R$ 8.000,00 - Total Anual",
+      text: "Sustentação (Fee Mensal): R$ 8.000,00 - Total restante do ano",
       highlight: false,
     }
   ],
@@ -39,7 +39,7 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
         { name: "Gestão de infraestrutura (AWS, Cloudflare e Turso)" },
         { name: "Monitoramento básico da aplicação" },
         { name: "Correções pequenas e ajustes pontuais" },
-        { name: "Suporte operacional ao time da BMRA" },
+        { name: "Suporte operacional ao time da ABMRA" },
         { name: "Ajustes simples de conteúdo e configuração" },
         { name: "Acompanhamento técnico nos períodos-chave" }
       ]
@@ -50,7 +50,7 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
       description: "Transição segura e transparente do conhecimento técnico.",
       iconName: "Users",
       features: [
-        { name: "Entendimento geral da arquitetura" },
+        { name: "Analise geral do código do projeto" },
         { name: "Apresentação dos fluxos de negócio" },
         { name: "Transferência de conhecimento técnico" },
         { name: "Reuniões de alinhamento" },
@@ -63,7 +63,7 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
       id: 1,
       title: "Handover Técnico",
       dateRange: "Pontual",
-      description: "Custo único referente à transição segura de conhecimento e assunção da responsabilidade técnica pelo projeto.",
+      description: "Custo único referente à transição segura de conhecimento e assumir a responsabilidade técnica pelo projeto.",
       price: "R$ 2.400,00"
     },
     {
