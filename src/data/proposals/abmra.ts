@@ -116,7 +116,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
     {
       id: 1,
       title: "FASE 1 — Estabilidade e Confiabilidade Financeira",
-      dateRange: "35–45 horas",
+      dateRange: "",
       description: "Foco em reduzir risco financeiro e técnico, eliminando dependências manuais críticas.",
       price: "6.500,00",
       categories: [
@@ -141,7 +141,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
     {
       id: 2,
       title: "FASE 2 — Automação Operacional",
-      dateRange: "40–50 horas",
+      dateRange: "",
       description: "Foco em eliminar processos manuais anuais e reduzir erro humano.",
       price: "7.500,00",
       categories: [
@@ -166,7 +166,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
     {
       id: 3,
       title: "FASE 3 — Gestão e Transparência",
-      dateRange: "30–40 horas",
+      dateRange: "",
       description: "Foco em melhoria administrativa e eficiência na gestão do prêmio.",
       price: "5.500,00",
       categories: [
