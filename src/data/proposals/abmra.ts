@@ -22,11 +22,11 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
   paymentTerms: [
     {
       text: "Handover Técnico (Pontual): R$ 2.400,00",
-      highlight: false,
+      highlight: true,
     },
     {
-      text: "Sustentação (Fee Mensal): R$ 8.000,00 - Total restante do ano",
-      highlight: false,
+      text: "Sustentação (Fee Mensal): R$ 8.000,00 - Total somado referente ao restante do ano",
+      highlight: true,
     }
   ],
   modules: [
@@ -79,6 +79,146 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
       dateRange: "Agosto a Dezembro",
       description: "Valor ajustado para suportar a operação crítica, garantindo estabilidade e resposta rápida durante a época em que o sistema opera.",
       price: "R$ 1.120,00 / mês"
+    }
+  ]
+};
+
+const clone = <T>(obj: T): T => JSON.parse(JSON.stringify(obj));
+
+export const abmraEvolutionProposal: ProposalData = {
+  ...clone(abmraProposal),
+  projectName: "Plataforma Mostra de Comunicação - Roadmap de Evolução",
+  totalPrice: "R$ 19.500,00",
+  objective: `Esta proposta apresenta o Roadmap de Evolução estratégica para a Plataforma Mostra de Comunicação.
+
+Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e redução de risco, visando elevar a maturidade da plataforma em segurança, automação e gestão.`,
+  assumptions: [
+    "Valores referentes ao desenvolvimento das funcionalidades listadas",
+    "Não inclui o valor de sustentação mensal (Fee)",
+    "Prazos estimados em horas úteis de desenvolvimento",
+    "Implementação sequencial recomendada para mitigar riscos"
+  ],
+  paymentTerms: [
+    {
+      text: "Fase 1: Estabilidade e Confiabilidade: R$ 6.500,00",
+      highlight: true
+    },
+    {
+      text: "Fase 2: Automação Operacional: R$ 7.500,00",
+      highlight: true
+    },
+    {
+      text: "Fase 3: Gestão e Transparência: R$ 5.500,00",
+      highlight: true
+    }
+  ],
+  stages: [
+    {
+      id: 1,
+      title: "FASE 1 — Estabilidade e Confiabilidade Financeira",
+      dateRange: "35–45 horas",
+      description: "Foco em reduzir risco financeiro e técnico, eliminando dependências manuais críticas.",
+      price: "R$ 6.500,00",
+      categories: [
+        {
+          name: "Entregáveis",
+          items: [
+            { name: "Implementação de Webhooks Stripe (Segurança em pagamentos)" },
+            { name: "Botão de Reembolso na Plataforma (Autonomia)" },
+            { name: "Ajuste de Política no Cognito (Segurança de acesso)" },
+          ]
+        },
+        {
+          name: "Considerações",
+          items: [
+            { name: "Elimina risco em pagamentos" },
+            { name: "Remove dependência de schedule" },
+            { name: "Melhora controle financeiro" },
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: "FASE 2 — Automação Operacional",
+      dateRange: "40–50 horas",
+      description: "Foco em eliminar processos manuais anuais e reduzir erro humano.",
+      price: "R$ 7.500,00",
+      categories: [
+        {
+          name: "Entregáveis",
+          items: [
+            { name: "Distribuição automática de jurados" },
+            { name: "Arquivamento automático na virada de edição" },
+            { name: "Mudança agendada de preços" },
+          ]
+        },
+        {
+          name: "Considerações",
+          items: [
+            { name: "Reduz retrabalho anual" },
+            { name: "Diminui risco operacional" },
+            { name: "Aumenta autonomia da ABMRA" },
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "FASE 3 — Gestão e Transparência",
+      dateRange: "30–40 horas",
+      description: "Foco em melhoria administrativa e eficiência na gestão do prêmio.",
+      price: "R$ 5.500,00",
+      categories: [
+        {
+          name: "Entregáveis",
+          items: [
+            { name: "Shortlist dinâmica" },
+            { name: "Tela centralizada de emails" },
+          ]
+        },
+        {
+          name: "Considerações",
+          items: [
+            { name: "Melhoria de eficiência" },
+            { name: "Maior transparência no processo" },
+          ]
+        }
+      ]
+    }
+  ],
+  modules: [
+    {
+      id: "financeiro",
+      title: "Módulo Financeiro & Segurança",
+      description: "Blindagem do fluxo de pagamentos e acessos.",
+      iconName: "Gavel", // Using Gavel as placeholder for security/rules
+      features: [
+        { name: "Webhooks Stripe" },
+        { name: "Reembolso Automatizado" },
+        { name: "Políticas de Segurança (Cognito)" }
+      ]
+    },
+    {
+      id: "operacional",
+      title: "Automação Operacional",
+      description: "Redução de carga manual e inteligência de processo.",
+      iconName: "Server",
+      features: [
+        { name: "Distribuição de Jurados" },
+        { name: "Arquivamento de Edições" },
+        { name: "Agendamento de Preços" }
+      ]
+    },
+    {
+      id: "gestao",
+      title: "Gestão Administrativa",
+      description: "Ferramentas para facilitar o dia a dia da organização.",
+      iconName: "LayoutDashboard",
+      features: [
+        { name: "Shortlist Dinâmica" },
+        { name: "Central de Emails" }
+      ]
     }
   ]
 };

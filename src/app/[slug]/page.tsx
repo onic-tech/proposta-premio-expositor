@@ -37,6 +37,11 @@ export default function ProposalPage({ params }: { params: Promise<{ slug: strin
     ? "Detalhamento do que está contemplado no contrato de sustentação."
     : "Uma visão geral de como os módulos se conectam para entregar uma experiência completa.";
 
+  // Dynamic labels for the toggle
+  const toggleLabels = isMaintenance 
+    ? { reduced: "Sustentação", full: "Roadmap Evolução" }
+    : { reduced: "Opção 1 (R$ 30k)", full: "Opção 2 (R$ 42k)" };
+
   return (
     <main className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#020204] to-[#020204]">
       {/* Ambient Background Glow */}
@@ -49,7 +54,7 @@ export default function ProposalPage({ params }: { params: Promise<{ slug: strin
         <ProposalHeader data={currentData} />
         
         {hasMultipleVariants && (
-          <FloatingToggle variant={variant} onToggle={setVariant} />
+          <FloatingToggle variant={variant} onToggle={setVariant} labels={toggleLabels} />
         )}
         
         <ProposalObjective data={currentData} />

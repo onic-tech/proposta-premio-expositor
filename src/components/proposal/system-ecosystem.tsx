@@ -97,7 +97,13 @@ export function SystemEcosystem({ data, hideHeader = false }: { data: ProposalDa
         </div>
       )}
 
-      <div className={`grid grid-cols-1 md:grid-cols-2 ${data.modules.length > 2 ? 'lg:grid-cols-4' : 'lg:grid-cols-2 max-w-4xl mx-auto'} gap-6 relative`}>
+      <div className={`grid grid-cols-1 md:grid-cols-2 ${
+        data.modules.length === 3 
+          ? 'lg:grid-cols-3 max-w-6xl mx-auto' 
+          : data.modules.length === 2 
+            ? 'lg:grid-cols-2 max-w-4xl mx-auto' 
+            : 'lg:grid-cols-4'
+      } gap-6 relative`}>
         {/* Connecting Lines (Desktop Only - Visual decoration) */}
         <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent -z-10" />
         
