@@ -88,7 +88,7 @@ const clone = <T>(obj: T): T => JSON.parse(JSON.stringify(obj));
 export const abmraEvolutionProposal: ProposalData = {
   ...clone(abmraProposal),
   projectName: "Plataforma Mostra de Comunicação - Roadmap de Evolução",
-  totalPrice: "R$ 19.500,00",
+  totalPrice: "R$ 19.200,00",
   objective: `Esta proposta apresenta o Roadmap de Evolução estratégica para a Plataforma Mostra de Comunicação.
 
 Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e redução de risco, visando elevar a maturidade da plataforma em segurança, automação e gestão.`,
@@ -100,15 +100,15 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
   ],
   paymentTerms: [
     {
-      text: "Fase 1: Estabilidade e Confiabilidade: R$ 6.500,00",
+      text: "Fase 1: Estabilidade e Confiabilidade: R$ 6.080,00",
       highlight: true
     },
     {
-      text: "Fase 2: Automação Operacional: R$ 7.500,00",
+      text: "Fase 2: Automação Operacional: R$ 7.680,00",
       highlight: true
     },
     {
-      text: "Fase 3: Gestão e Transparência: R$ 5.500,00",
+      text: "Fase 3: Gestão e Transparência: R$ 5.440,00",
       highlight: true
     }
   ],
@@ -118,7 +118,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
       title: "FASE 1 — Estabilidade e Confiabilidade Financeira",
       dateRange: "",
       description: "Foco em reduzir risco financeiro e técnico, eliminando dependências manuais críticas.",
-      price: "6.500,00",
+      price: "6.080,00",
       categories: [
         {
           name: "Entregáveis",
@@ -143,7 +143,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
       title: "FASE 2 — Automação Operacional",
       dateRange: "",
       description: "Foco em eliminar processos manuais anuais e reduzir erro humano.",
-      price: "7.500,00",
+      price: "7.680,00",
       categories: [
         {
           name: "Entregáveis",
@@ -168,7 +168,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
       title: "FASE 3 — Gestão e Transparência",
       dateRange: "",
       description: "Foco em melhoria administrativa e eficiência na gestão do prêmio.",
-      price: "5.500,00",
+      price: "5.440,00",
       categories: [
         {
           name: "Entregáveis",
