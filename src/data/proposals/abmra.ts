@@ -51,7 +51,7 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
       iconName: "Users",
       features: [
         { name: "Analise geral do código do projeto" },
-        { name: "Apresentação dos fluxos de negócio" },
+        { name: "Entendimento dos fluxos de negócio" },
         { name: "Transferência de conhecimento técnico" },
         { name: "Reuniões de alinhamento" },
         { name: "Suporte pós-transição (período acordado)" }
