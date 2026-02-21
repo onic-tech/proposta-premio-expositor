@@ -81,7 +81,7 @@ export function FinancialSummary({ data }: { data: ProposalData }) {
             {
               isProposeNewFeatures && (
                 <div className="flex items-start gap-1 text-primary">
-                  <DollarSign className="w-8 h-8 mt-2" />
+                  <span className="text-3xl"> R$ </span>
                   <span className="text-5xl md:text-6xl font-bold tracking-tighter">
                     {formattedLargePrice}
                   </span>

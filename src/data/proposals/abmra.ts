@@ -64,21 +64,21 @@ Considerando o contexto de um sistema já consolidado e com sazonalidade bem def
       title: "Handover Técnico",
       dateRange: "Pontual",
       description: "Custo único referente à transição segura de conhecimento e assumir a responsabilidade técnica pelo projeto.",
-      price: "R$ 2.400,00"
+      price: "2.400,00"
     },
     {
       id: 2,
       title: "Sustentação: Baixa Demanda Operacional",
       dateRange: "Março a Julho",
       description: "Valor reduzido compatível com o período de baixa demanda (fora do cronograma de uso da aplicação), focando apenas na disponibilidade.",
-      price: "R$ 480,00 / mês"
+      price: "480,00 / mês"
     },
     {
       id: 3,
       title: "Sustentação: Período de Uso Intensivo",
       dateRange: "Agosto a Dezembro",
       description: "Valor ajustado para suportar a operação crítica, garantindo estabilidade e resposta rápida durante a época em que o sistema opera.",
-      price: "R$ 1.120,00 / mês"
+      price: "1.120,00 / mês"
     }
   ]
 };
@@ -118,7 +118,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
       title: "FASE 1 — Estabilidade e Confiabilidade Financeira",
       dateRange: "35–45 horas",
       description: "Foco em reduzir risco financeiro e técnico, eliminando dependências manuais críticas.",
-      price: "R$ 6.500,00",
+      price: "6.500,00",
       categories: [
         {
           name: "Entregáveis",
@@ -143,7 +143,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
       title: "FASE 2 — Automação Operacional",
       dateRange: "40–50 horas",
       description: "Foco em eliminar processos manuais anuais e reduzir erro humano.",
-      price: "R$ 7.500,00",
+      price: "7.500,00",
       categories: [
         {
           name: "Entregáveis",
@@ -168,7 +168,7 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
       title: "FASE 3 — Gestão e Transparência",
       dateRange: "30–40 horas",
       description: "Foco em melhoria administrativa e eficiência na gestão do prêmio.",
-      price: "R$ 5.500,00",
+      price: "5.500,00",
       categories: [
         {
           name: "Entregáveis",
