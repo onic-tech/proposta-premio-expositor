@@ -95,27 +95,26 @@ Estruturamos as melhorias em fases lógicas focadas em impacto de negócio e red
   assumptions: [
     "Valores referentes ao desenvolvimento das funcionalidades listadas",
     "Não inclui o valor de sustentação mensal (Fee)",
-    "Prazos estimados em horas úteis de desenvolvimento",
     "Implementação sequencial recomendada para mitigar riscos"
   ],
   paymentTerms: [
     {
-      text: "Fase 1: Estabilidade e Confiabilidade: R$ 6.080,00",
+      text: "Fase 1: R$ 6.080,00",
       highlight: true
     },
     {
-      text: "Fase 2: Automação Operacional: R$ 7.680,00",
+      text: "Fase 2: R$ 7.680,00",
       highlight: true
     },
     {
-      text: "Fase 3: Gestão e Transparência: R$ 5.440,00",
+      text: "Fase 3: R$ 5.440,00",
       highlight: true
     }
   ],
   stages: [
     {
       id: 1,
-      title: "FASE 1 — Estabilidade e Confiabilidade Financeira",
+      title: "FASE 1 — Financeiro e Segurança",
       dateRange: "",
       description: "Foco em reduzir risco financeiro e técnico, eliminando dependências manuais críticas.",
       price: "6.080,00",

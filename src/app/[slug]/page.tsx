@@ -28,19 +28,17 @@ export default function ProposalPage({ params }: { params: Promise<{ slug: strin
 
   // Custom texts based on project type
   const isMaintenance = slug === 'abmra';
-  const timelineTitle = isMaintenance ? "Cronograma de Sustentação" : "Cronograma de Execução";
-  const timelineSubtitle = isMaintenance 
+  const timelineSubtitle = isMaintenance && variant === 'reduced'
     ? "Segurança e estabilidade durante <span class=\"text-primary\">todo o ano</span>"
-    : "Transformando sua visão em realidade em <span class=\"text-primary\">4 Etapas Estratégicas</span>";
-  const ecosystemTitle = isMaintenance ? "Escopo do Serviço" : "Ecossistema Integrado";
-  const ecosystemSubtitle = isMaintenance 
-    ? "Detalhamento do que está contemplado no contrato de sustentação."
-    : "Uma visão geral de como os módulos se conectam para entregar uma experiência completa.";
+    : "Transformando sua visão em realidade em <span class=\"text-primary\">3 Fases Estratégicas</span>";
+  const ecosystemTitle =  "Escopo do Serviço";
+  const ecosystemSubtitle = isMaintenance && variant === 'reduced'
+    ? "Detalhamento do que está contemplado na proposta de sustentação."
+    : "Detalhamento do que está contemplado na proposta de evolução.";
 
   // Dynamic labels for the toggle
-  const toggleLabels = isMaintenance 
-    ? { reduced: "Sustentação", full: "Roadmap Evolução" }
-    : { reduced: "Opção 1 (R$ 30k)", full: "Opção 2 (R$ 42k)" };
+  const toggleLabels = { reduced: "Sustentação", full: "Roadmap Evolução" }
+
 
   return (
     <main className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#020204] to-[#020204]">
