@@ -69,17 +69,10 @@ Sobre o esclarecimento que tivemos da ultima reunião, ajustamos o fee para gara
     },
     {
       id: 2,
-      title: "Sustentação: Baixa Demanda Operacional",
-      dateRange: "Março a Julho",
+      title: "Sustentação",
+      dateRange: "Março a Dezembro",
       description: "Valor reduzido compatível com o período de baixa demanda (fora do cronograma de uso da aplicação), focando apenas na disponibilidade.",
       price: "960,00 / mês"
-    },
-    {
-      id: 3,
-      title: "Sustentação: Período de Uso Intensivo",
-      dateRange: "Agosto a Dezembro",
-      description: "Valor ajustado para suportar a operação crítica, garantindo estabilidade e resposta rápida durante a época em que o sistema opera.",
-      price: "1.120,00 / mês"
     }
   ]
 };
