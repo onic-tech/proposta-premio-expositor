@@ -72,7 +72,7 @@ Sobre o esclarecimento que tivemos da ultima reunião, ajustamos o fee para gara
       title: "Sustentação: Baixa Demanda Operacional",
       dateRange: "Março a Julho",
       description: "Valor reduzido compatível com o período de baixa demanda (fora do cronograma de uso da aplicação), focando apenas na disponibilidade.",
-      price: "R$ 900,00 / mês"
+      price: "960,00 / mês"
     },
     {
       id: 3,
